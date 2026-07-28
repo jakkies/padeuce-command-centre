@@ -1,0 +1,16 @@
+{
+  "name": "Padeuce Command Centre",
+  "short_name": "Padeuce",
+  "description": "Control every court and run every competition.",
+  "start_url": "/#/login",
+  "display": "standalone",
+  "background_color": "#030910",
+  "theme_color": "#07111c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
