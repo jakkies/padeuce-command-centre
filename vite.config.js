@@ -5,16 +5,6 @@ import { sites } from "./build/sites-vite-plugin.js";
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
-const workerConfig = {
-  main: "./worker/index.js",
-  compatibility_date: "2026-05-22",
-  compatibility_flags: ["nodejs_compat"],
-  assets: {
-    binding: "ASSETS",
-    not_found_handling: "single-page-application",
-  },
-};
-
 export default defineConfig(() => {
   process.env.WRANGLER_WRITE_LOGS ??= "false";
   process.env.WRANGLER_LOG_PATH ??= ".wrangler/logs";
@@ -26,7 +16,7 @@ export default defineConfig(() => {
       : undefined,
     plugins: [
       sites(),
-      cloudflare({ config: workerConfig }),
+      cloudflare({ configPath: "./wrangler.jsonc" }),
     ],
   };
 });

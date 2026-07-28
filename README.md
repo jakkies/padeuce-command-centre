@@ -16,6 +16,33 @@ Open the local URL shown in the terminal. The optimised production build is crea
 npm run build
 ```
 
+## Deploy to Cloudflare
+
+The checked-in `wrangler.jsonc` is the source of truth for both Vite and
+Wrangler. The install lifecycle creates the production bundle before
+Cloudflare reaches its deploy stage, so the repository works with the default
+Workers Builds settings:
+
+```bash
+npx wrangler deploy
+```
+
+For the existing Cloudflare Git integration, use:
+
+- Build command: leave blank
+- Deploy command: `npx wrangler deploy`
+
+The `postinstall` script deliberately supplies the build step because
+Cloudflare Workers Builds does not honor Wrangler custom-build settings. If
+the dashboard is later configured with `npm run build` as a separate build
+command, the install hook may be removed to avoid building twice.
+
+To verify the complete build and upload bundle locally without publishing:
+
+```bash
+npm run deploy:dry-run
+```
+
 ## Routes
 
 The prototype uses a lightweight hash router:
@@ -80,6 +107,7 @@ The prototype uses semantic controls, labels, visible focus treatment, 44px mobi
 - `css/pages/community.css` - Community directory, profile, modal and responsive styles
 - `assets/` - local imagery and brand assets
 - `manifest.webmanifest` - installable-site metadata
+- `wrangler.jsonc` - Cloudflare Worker, static assets and deployment build configuration
 
 The browser application has no framework, no inline styles, no inline scripts and no runtime dependency.
 
