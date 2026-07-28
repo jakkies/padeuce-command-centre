@@ -16,6 +16,9 @@
     <link rel="icon" href="./assets/logo/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/pages/courts.css">
+    <link rel="stylesheet" href="./css/pages/matches.css">
+    <link rel="stylesheet" href="./css/pages/community.css">
     <title>Padeuce Command Centre</title>
   </head>
   <body>
@@ -26,8 +29,7 @@
             <div class="story-overlay"></div>
             <div class="story-content">
               <a class="brand-logo" href="#/login" aria-label="Padeuce home">
-                <span class="brand-mark" aria-hidden="true">P</span>
-                <span class="brand-word">PADEUCE</span>
+                <img class="brand-logo-image" src="./assets/logo/padeuce-brandmark.svg" alt="" width="285" height="83">
               </a>
               <div class="login-copy">
                 <span class="eyebrow electric">The scoring platform for padel</span>
@@ -72,8 +74,7 @@
           <div class="login-form-side">
             <div class="mobile-login-brand">
               <a class="brand-logo" href="#/login" aria-label="Padeuce home">
-                <span class="brand-mark" aria-hidden="true">P</span>
-                <span class="brand-word">PADEUCE</span>
+                <img class="brand-logo-image" src="./assets/logo/padeuce-brandmark.svg" alt="" width="285" height="83">
               </a>
               <h1>Every point <span>counts.</span></h1>
             </div>
@@ -129,8 +130,7 @@
         <div class="topbar-brand">
           <button class="hamburger" id="drawer-open" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
           <a class="brand-logo" href="#/today" aria-label="Padeuce Today">
-            <span class="brand-mark" aria-hidden="true">P</span>
-            <span class="brand-word">PADEUCE</span>
+            <img class="brand-logo-image" src="./assets/logo/padeuce-brandmark.svg" alt="" width="285" height="83">
           </a>
         </div>
         <div class="topbar-tools">
@@ -179,7 +179,7 @@
       <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
         <div class="drawer-header">
           <a class="brand-logo" href="#/today" aria-label="Padeuce Today">
-            <span class="brand-mark" aria-hidden="true">P</span><span class="brand-word">PADEUCE</span>
+            <img class="brand-logo-image" src="./assets/logo/padeuce-brandmark.svg" alt="" width="285" height="83">
           </a>
           <button class="icon-button" id="drawer-close" type="button" aria-label="Close navigation">×</button>
         </div>
@@ -305,6 +305,150 @@
           <aside class="tournament-aside mobile-sheet" id="mobile-tournament-sheet" aria-label="Selected tournament details" hidden></aside>
         </section>
 
+        <section class="page page-view courts-page" id="courts-page" data-page="courts" hidden>
+          <header class="page-heading">
+            <div><span class="eyebrow">Court operations</span><h1>Courts</h1><p>Monitor live court activity and availability.</p></div>
+            <div class="page-actions courts-page-actions">
+              <button class="button secondary" id="manage-facilities-button" type="button">⚙ Manage Facilities</button>
+              <button class="button primary sticky-mobile-cta" id="add-court-button" type="button">＋ Add Court</button>
+            </div>
+          </header>
+
+          <section class="courts-summary-strip" id="courts-summary" aria-label="Court status summary"></section>
+
+          <section class="court-toolbar" aria-label="Court filters and display controls">
+            <label class="filter-search court-search-control"><span aria-hidden="true">⌕</span><input id="court-search" type="search" placeholder="Search courts or teams…" aria-label="Search courts"></label>
+            <label class="court-filter-control"><span>Status</span><select id="court-status-filter"><option value="all">All statuses</option><option value="live">Live</option><option value="waiting">Waiting</option><option value="delayed">Delayed</option><option value="available">Available</option><option value="offline">Offline</option><option value="maintenance">Maintenance</option><option value="completed">Completed</option><option value="warm-up">Warm-up</option></select></label>
+            <label class="court-filter-control"><span>Zone</span><select id="court-zone-filter"><option value="all">All zones</option><option>Main Courts</option><option>Outdoor Courts</option><option>Academy Courts</option></select></label>
+            <label class="court-filter-control court-sort-control"><span>Sort</span><select id="court-sort"><option value="number">Court number</option><option value="status">Status</option><option value="zone">Zone</option></select></label>
+            <div class="court-view-toggle" role="group" aria-label="Court display mode">
+              <button type="button" data-court-view="grid" aria-pressed="true" title="Grid view"><span aria-hidden="true">▦</span><b>Grid</b></button>
+              <button type="button" data-court-view="list" aria-pressed="false" title="List view"><span aria-hidden="true">☷</span><b>List</b></button>
+              <button type="button" data-court-view="map" aria-pressed="false" title="Map view"><span aria-hidden="true">⌖</span><b>Map</b></button>
+            </div>
+          </section>
+
+          <div class="court-result-bar"><span><strong id="court-results-count">10 courts</strong> in this view</span><button class="text-button" id="clear-court-filters" type="button" hidden>Clear filters</button></div>
+
+          <div class="courts-workspace-layout">
+            <div class="court-collection court-grid-view" id="court-collection" aria-live="polite"></div>
+            <aside class="court-detail-panel" id="court-detail-panel" aria-label="Selected court details"></aside>
+          </div>
+
+          <button class="sheet-scrim court-sheet-scrim" id="court-sheet-scrim" type="button" aria-label="Close court details" hidden></button>
+          <aside class="court-detail-sheet" id="court-detail-sheet" role="dialog" aria-modal="true" aria-label="Court details" hidden></aside>
+          <div class="screen-reader-only" id="court-live-region" aria-live="assertive" aria-atomic="true"></div>
+        </section>
+
+        <section class="page page-view matches-page" id="matches-page" data-page="matches" hidden>
+          <header class="page-heading matches-page-heading">
+            <div><span class="eyebrow">Match operations</span><h1>Matches</h1><p>Manage all scheduled, live and completed matches.</p></div>
+            <div class="page-actions matches-page-actions">
+              <button class="button secondary compact" id="export-matches-button" type="button">↓ Export</button>
+              <button class="button secondary compact" id="import-schedule-button" type="button">⇧ Import Schedule</button>
+              <button class="button secondary compact" id="generate-round-button" type="button">◈ Generate Round</button>
+              <button class="button primary sticky-mobile-cta" id="new-match-button" type="button">＋ New Match</button>
+            </div>
+          </header>
+
+          <section class="matches-summary-strip" id="matches-summary" aria-label="Match operations summary"></section>
+
+          <section class="match-toolbar" aria-label="Match filters and view controls">
+            <div class="match-toolbar-primary">
+              <label class="match-search-control"><span aria-hidden="true">⌕</span><input id="match-search" type="search" placeholder="Search match, tournament or team…" aria-label="Search matches"></label>
+              <label class="match-player-control"><span aria-hidden="true">◉</span><input id="match-player-filter" type="search" placeholder="Player search" aria-label="Search by player"></label>
+              <button class="button secondary compact match-filter-toggle" id="match-filter-toggle" type="button" aria-controls="match-filter-grid">☷ Filters</button>
+              <div class="match-view-toggle" role="group" aria-label="Match display mode">
+                <button type="button" data-match-view="table" aria-pressed="true"><span aria-hidden="true">☷</span><b>Table</b></button>
+                <button type="button" data-match-view="timeline" aria-pressed="false"><span aria-hidden="true">⌁</span><b>Timeline</b></button>
+                <button type="button" data-match-view="kanban" aria-pressed="false"><span aria-hidden="true">▦</span><b>Kanban</b></button>
+              </div>
+            </div>
+            <div class="match-filter-grid" id="match-filter-grid">
+              <label><span>Tournament</span><select id="match-tournament-filter"><option value="all">All</option></select></label>
+              <label><span>Round</span><select id="match-round-filter"><option value="all">All</option></select></label>
+              <label><span>Court</span><select id="match-court-filter"><option value="all">All</option></select></label>
+              <label><span>Status</span><select id="match-status-filter"><option value="all">All statuses</option><option value="live">Live</option><option value="waiting">Waiting</option><option value="warm-up">Warm-up</option><option value="scheduled">Scheduled</option><option value="completed">Completed</option><option value="review">Needs Review</option><option value="delayed">Delayed</option><option value="paused">Paused</option><option value="cancelled">Cancelled</option><option value="walkover">Walkover</option><option value="retired">Retired</option></select></label>
+              <label><span>Date</span><select id="match-date-filter"><option value="all">All dates</option><option value="2026-07-28">Today · 28 Jul</option><option value="2026-07-29">Tomorrow · 29 Jul</option></select></label>
+              <label><span>Format</span><select id="match-format-filter"><option value="all">All</option></select></label>
+              <label><span>Official</span><select id="match-official-filter"><option value="all">All</option></select></label>
+            </div>
+            <div class="match-quick-chips" role="group" aria-label="Quick status filters">
+              <span>Quick view</span>
+              <button type="button" data-match-chip="live" aria-pressed="false"><i aria-hidden="true">●</i>Live</button>
+              <button type="button" data-match-chip="waiting" aria-pressed="false"><i aria-hidden="true">◷</i>Waiting</button>
+              <button type="button" data-match-chip="completed" aria-pressed="false"><i aria-hidden="true">✓</i>Completed</button>
+              <button type="button" data-match-chip="delayed" aria-pressed="false"><i aria-hidden="true">⌛</i>Delayed</button>
+              <button type="button" data-match-chip="review" aria-pressed="false"><i aria-hidden="true">!</i>Needs Review</button>
+            </div>
+          </section>
+
+          <div class="match-result-bar"><span><strong id="match-results-count">32 matches</strong> in this schedule</span><button class="text-button" type="button" data-clear-match-filters>Clear filters</button></div>
+
+          <div class="matches-workspace-layout">
+            <div class="match-collection match-table-view" id="match-collection" aria-live="polite"></div>
+            <aside class="match-detail-panel" id="match-detail-panel" aria-label="Selected match details"></aside>
+          </div>
+
+          <button class="sheet-scrim match-sheet-scrim" id="match-sheet-scrim" type="button" aria-label="Close match details" hidden></button>
+          <aside class="match-detail-sheet" id="match-detail-sheet" role="dialog" aria-modal="true" aria-label="Match details" hidden></aside>
+          <div class="screen-reader-only" id="match-live-region" aria-live="assertive" aria-atomic="true"></div>
+        </section>
+
+        <section class="page page-view community-page" id="community-page" data-page="community" hidden>
+          <header class="page-heading community-page-heading">
+            <div><span class="eyebrow">Competition directory</span><h1>Community</h1><p>Manage players, teams, coaches and officials.</p></div>
+            <div class="page-actions community-page-actions">
+              <button class="button secondary compact" id="community-export-button" type="button">↓ Export</button>
+              <button class="button secondary compact" id="community-import-button" type="button">⇧ Import</button>
+              <button class="button secondary compact" id="community-invite-button" type="button">✉ Send Invitation</button>
+              <button class="button primary sticky-mobile-cta" id="community-primary-action" type="button">＋ Add Person</button>
+            </div>
+          </header>
+
+          <section class="community-summary-strip" id="community-summary" aria-label="Community summary"></section>
+
+          <div class="community-top-row">
+            <div class="community-tabs" id="community-tabs" role="tablist" aria-label="Community directory types">
+              <button class="active" type="button" role="tab" data-community-tab="players" aria-selected="true">Players <span>284</span></button>
+              <button type="button" role="tab" data-community-tab="teams" aria-selected="false" tabindex="-1">Teams <span>62</span></button>
+              <button type="button" role="tab" data-community-tab="coaches" aria-selected="false" tabindex="-1">Coaches <span>18</span></button>
+              <button type="button" role="tab" data-community-tab="officials" aria-selected="false" tabindex="-1">Officials <span>24</span></button>
+            </div>
+            <div class="community-view-toggle" role="group" aria-label="Community display mode">
+              <button type="button" data-community-view="list" aria-pressed="true"><span aria-hidden="true">☷</span>List</button>
+              <button type="button" data-community-view="card" aria-pressed="false"><span aria-hidden="true">▦</span>Cards</button>
+            </div>
+          </div>
+
+          <section class="community-toolbar" id="community-toolbar" aria-label="Community filters">
+            <div class="community-toolbar-primary">
+              <label class="community-search-control"><span aria-hidden="true">⌕</span><input id="community-search" type="search" placeholder="Search people, teams, email or club…" aria-label="Search Community"></label>
+              <button class="button secondary compact community-filter-toggle" id="community-filter-toggle" type="button" aria-controls="community-filter-grid" aria-expanded="false">☷ Filters</button>
+            </div>
+            <div class="community-filter-grid" id="community-filter-grid">
+              <label><span>Club</span><select id="community-club-filter"><option value="all">All clubs</option></select></label>
+              <label><span>Status</span><select id="community-status-filter"><option value="all">All statuses</option></select></label>
+              <label><span>Level / Assignment</span><select id="community-level-filter"><option value="all">All levels</option></select></label>
+              <label><span>Participation</span><select id="community-participation-filter"><option value="all">All participation</option></select></label>
+              <label><span>Sort</span><select id="community-sort"><option value="name">Name A–Z</option><option value="ranking">Ranking</option><option value="win-rate">Win rate</option><option value="activity">Most active</option></select></label>
+            </div>
+          </section>
+
+          <section class="community-attention-panel" id="community-attention" aria-label="Community records needing attention"></section>
+
+          <div class="community-result-bar"><div><span class="eyebrow">Directory</span><h2 id="community-directory-title">Players</h2></div><span><strong id="community-results-count">20 players</strong> in this view</span><button class="text-button" type="button" data-clear-community-filters>Clear filters</button></div>
+
+          <div class="community-workspace-layout">
+            <div class="community-collection community-list-view" id="community-collection" aria-live="polite"></div>
+            <aside class="community-detail-panel" id="community-detail-panel" aria-label="Selected community profile"></aside>
+          </div>
+
+          <button class="sheet-scrim community-sheet-scrim" id="community-sheet-scrim" type="button" aria-label="Close community profile" hidden></button>
+          <aside class="community-detail-sheet" id="community-detail-sheet" role="dialog" aria-modal="true" aria-label="Community profile details" hidden></aside>
+          <div class="screen-reader-only" id="community-live-region" aria-live="assertive" aria-atomic="true"></div>
+        </section>
+
         <section class="page page-view coming-page" id="coming-page" data-page="coming" hidden>
           <header class="page-heading"><div><span class="eyebrow">Padeuce workspace</span><h1 id="coming-title">Workspace</h1><p>This command-centre module is being prepared for the next release.</p></div></header>
           <section class="coming-card">
@@ -322,6 +466,7 @@
         <button type="button" data-route="today"><span>⌂</span>Today</button>
         <button type="button" data-route="competitions"><span>◈</span>Competitions</button>
         <button type="button" data-route="courts"><span>▦</span>Courts</button>
+        <button type="button" data-route="matches"><span>◎</span>Matches</button>
         <button type="button" id="more-navigation"><span>•••</span>More</button>
       </nav>
     </div>

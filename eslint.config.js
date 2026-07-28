@@ -7,6 +7,7 @@ export default [
       globals: {
         CSS: "readonly",
         document: "readonly",
+        FormData: "readonly",
         localStorage: "readonly",
         process: "readonly",
         sessionStorage: "readonly",

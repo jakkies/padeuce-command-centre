@@ -124,29 +124,12 @@ a:focus-visible {
   align-items: center;
   display: inline-flex;
   flex: 0 0 auto;
-  gap: 11px;
 }
 
-.brand-mark {
-  align-items: center;
-  background: var(--colour-electric);
-  border-radius: 11px;
-  color: #06100d;
-  display: inline-flex;
-  font: 900 italic 23px/1 var(--font-heading);
-  height: 38px;
-  justify-content: center;
-  letter-spacing: -5px;
-  overflow: hidden;
-  padding-right: 4px;
-  transform: skew(-4deg);
-  width: 38px;
-}
-
-.brand-word {
-  color: var(--colour-off-white);
-  font: 500 22px/1 var(--font-heading);
-  letter-spacing: 0.02em;
+.brand-logo-image {
+  display: block;
+  height: auto;
+  width: 145px;
 }
 
 .eyebrow {
@@ -2792,7 +2775,6 @@ input[type="checkbox"] {
     --sidebar-width: 82px;
   }
 
-  .topbar-brand .brand-word,
   .sidebar .nav-label,
   .sidebar .nav-item > span:nth-child(2),
   .sidebar .nav-item b,
@@ -3016,14 +2998,8 @@ input[type="checkbox"] {
     width: auto;
   }
 
-  .topbar-brand .brand-word {
-    display: inline;
-    font-size: 17px;
-  }
-
-  .topbar-brand .brand-mark {
-    height: 33px;
-    width: 33px;
+  .topbar-brand .brand-logo-image {
+    width: 132px;
   }
 
   .hamburger {
@@ -3328,10 +3304,6 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 479px) {
-  .brand-word {
-    font-size: 17px;
-  }
-
   .login-form-side {
     padding: 22px 18px;
   }

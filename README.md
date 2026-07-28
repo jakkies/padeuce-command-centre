@@ -42,12 +42,24 @@ Unauthenticated routes redirect to the login screen. Any valid email and a passw
 - Deterministic Padeuce Assistant responses and dismissible suggestions
 - Competition tabs, search, format/status/venue filters and selected-tournament details
 - Mobile tournament bottom sheet
+- Court operations grid, list and CSS map views with persistent display mode
+- Court status and zone filters, live search, sorting and selected-court details
+- Start, confirm, delay, assign, reconnect, move, official-request and add-court workflows
+- Responsive court detail drawer with keyboard focus trapping
+- Match table, chronological timeline and draggable Kanban views with session-persisted display mode
+- Tournament, round, court, status, player, date, format, official and free-text match filtering
+- Selected-match scoring, teams, history, notes and operational detail panel or mobile drawer
+- Launch scoring, pause, resume, move, confirm, cancel, share, import, export and new-match workflows
+- Community Players, Teams, Coaches and Officials directories with per-tab filters and persistent active tab
+- Semantic list tables, responsive profile cards, selected-profile details and keyboard-operable directory tabs
+- Add Person and Add Team flows, invitations, assignments, editable notes, attention filters and CSV export
 - Five-step tournament creation flow that adds a session-local draft
+- Five-step match creation flow that adds a session-local scheduled match
 - Tournament import, more menus, help, request-access and password-reset dialogs
 
 ## Design system
 
-Design tokens live in `app/globals.css`. The core palette uses deep navy surfaces, restrained cool-grey borders and selective electric chartreuse emphasis. Headings use a Montserrat-style system stack; body copy uses an Inter-style system stack.
+Design tokens live in `css/styles.css`. The core palette uses deep navy surfaces, restrained cool-grey borders and selective electric chartreuse emphasis. Headings use a Montserrat-style system stack; body copy uses an Inter-style system stack.
 
 ## Accessibility
 
@@ -55,10 +67,17 @@ The prototype uses semantic controls, labels, visible focus treatment, 44px mobi
 
 ## Project structure
 
-- `index.html` - semantic markup for login, command centre, competitions, placeholders, dialogs and mobile navigation
-- `js/app.js` - hash routing, component rendering, state and all prototype interactions
-- `js/data.js` - local courts, competitions, activity, schedule and navigation data
+- `index.html` - semantic markup for login, command centre, competitions, courts, matches, placeholders, dialogs and mobile navigation
+- `js/app.js` - shared hash routing, shell state and cross-screen interactions
+- `js/data.js` - local courts, matches, competitions, activity, schedule and navigation data
+- `js/pages/courts.js` - court operations state, filters, view rendering and workflows
+- `js/pages/matches.js` - match operations state, filters, three views and workflows
+- `js/pages/community.js` - community tabs, filtering, session-local records, assignments and export flows
+- `js/components/` - reusable court and match cards, detail panels, status utilities and view controls
 - `css/styles.css` - reset, tokens, components, pages and responsive behaviour
+- `css/pages/courts.css` - Courts-specific grid, list, map, detail and responsive styles
+- `css/pages/matches.css` - Matches-specific table, timeline, Kanban, detail and responsive styles
+- `css/pages/community.css` - Community directory, profile, modal and responsive styles
 - `assets/` - local imagery and brand assets
 - `manifest.webmanifest` - installable-site metadata
 
@@ -70,4 +89,4 @@ Add a route entry to `navItems` in `js/data.js`, add the semantic page section t
 
 ## Replace mock data with an API
 
-Keep the competition object shape in `js/data.js` as the view model. Replace the seed array and other static exports with asynchronous fetch functions, then load them into the existing top-level state. The filtering, selection and rendering functions can remain unchanged.
+Keep the competition, court and match object shapes in `js/data.js` as view models. Replace the seed arrays and other static exports with asynchronous fetch functions, then load them into the existing screen state. The filtering, selection and rendering functions can remain unchanged.

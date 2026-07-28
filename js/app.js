@@ -4,6 +4,9 @@ import {
   courts,
   navItems,
 } from "./data.js";
+import { initCourtsScreen } from "./pages/courts.js";
+import { initMatchesScreen } from "./pages/matches.js";
+import { initCommunityScreen } from "./pages/community.js";
 
 const statusLabels = {
   live: "Live",
@@ -94,6 +97,9 @@ const elements = {
 
 let toastTimer;
 let modalReturnFocus;
+let courtController;
+let matchController;
+let communityController;
 
 function escapeHtml(value) {
   return String(value)
@@ -178,25 +184,32 @@ function syncRoute() {
 
   if (!authenticated) return;
 
-  const pageRoute = requested === "today" || requested === "competitions" ? requested : "coming";
+  const routeRoot = requested.split("/")[0];
+  const pageRoute = ["today", "competitions", "courts", "matches", "community"].includes(routeRoot) ? routeRoot : "coming";
   document.querySelectorAll("[data-page]").forEach((page) => {
     page.hidden = page.dataset.page !== pageRoute;
   });
 
   document.querySelectorAll("[data-route]").forEach((button) => {
-    const active = button.dataset.route === requested;
+    const active = button.dataset.route === routeRoot;
     button.classList.toggle("active", active);
     if (active) button.setAttribute("aria-current", "page");
     else button.removeAttribute("aria-current");
   });
 
   if (pageRoute === "coming") {
-    const item = navItems.find((entry) => entry.route === requested) || navItems[0];
+    const item = navItems.find((entry) => entry.route === routeRoot) || navItems[0];
     document.querySelector("#coming-title").textContent = item.label;
     document.querySelector("#coming-name").textContent = item.label;
     document.querySelector("#coming-icon").textContent = item.icon;
   }
 
+  if (requested === "courts") courtController?.activate();
+  else courtController?.deactivate();
+  if (routeRoot === "matches") matchController?.activate(requested.split("/")[1] || "");
+  else matchController?.deactivate();
+  if (requested === "community") communityController?.activate();
+  else communityController?.deactivate();
   if (requested === "competitions") renderCompetitions();
 }
 
@@ -375,6 +388,12 @@ function closeMobileSheet() {
 }
 
 function modalTemplate(type, payload = {}) {
+  if (type === "custom") {
+    return {
+      title: payload.title || "Court action",
+      body: payload.body || "",
+    };
+  }
   if (type === "forgot") {
     return {
       title: "Reset your password",
@@ -423,7 +442,7 @@ function openModal(type, payload = {}) {
   const template = modalTemplate(type, payload);
   elements.modalTitle.textContent = template.title;
   elements.modalBody.innerHTML = template.body;
-  elements.modal.classList.toggle("modal-wide", type === "new");
+  elements.modal.classList.toggle("modal-wide", type === "new" || Boolean(payload.wide));
   elements.modalBackdrop.hidden = false;
   elements.modal.dataset.type = type;
   document.querySelector("#modal-close").focus();
@@ -759,6 +778,38 @@ function initialize() {
   renderActivity();
   populateCompetitionFilters();
   renderCompetitions();
+  courtController = initCourtsScreen({
+    showToast,
+    navigate,
+    openDialog: ({ title, body, wide = false }) => openModal("custom", { title, body, wide }),
+    closeDialog: closeModal,
+    announce: (message) => {
+      const liveRegion = document.querySelector("#court-live-region");
+      liveRegion.textContent = "";
+      window.setTimeout(() => { liveRegion.textContent = message; }, 20);
+    },
+  });
+  matchController = initMatchesScreen({
+    showToast,
+    navigate,
+    openDialog: ({ title, body, wide = false }) => openModal("custom", { title, body, wide }),
+    closeDialog: closeModal,
+    announce: (message) => {
+      const liveRegion = document.querySelector("#match-live-region");
+      liveRegion.textContent = "";
+      window.setTimeout(() => { liveRegion.textContent = message; }, 20);
+    },
+  });
+  communityController = initCommunityScreen({
+    showToast,
+    openDialog: ({ title, body, wide = false }) => openModal("custom", { title, body, wide }),
+    closeDialog: closeModal,
+    announce: (message) => {
+      const liveRegion = document.querySelector("#community-live-region");
+      liveRegion.textContent = "";
+      window.setTimeout(() => { liveRegion.textContent = message; }, 20);
+    },
+  });
   wireEvents();
   syncRoute();
 }
