@@ -301,7 +301,7 @@ a:focus-visible {
 }
 
 .login-story {
-  background: url("/padeuce-court-night.png") center/cover no-repeat;
+  background: url("../assets/images/padeuce-court-night.png") center/cover no-repeat;
   min-height: 720px;
   overflow: hidden;
   position: relative;
@@ -2236,6 +2236,48 @@ input[type="checkbox"] {
 .mobile-sheet,
 .sheet-scrim {
   display: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.page-view {
+  min-height: calc(100vh - var(--header-height));
+}
+
+.modal-step-title {
+  color: var(--colour-silver);
+  font-size: 12px;
+  margin: -8px 0 18px;
+}
+
+.screen-reader-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.filters .select-control {
+  display: flex;
+}
+
+.competition-card button {
+  position: relative;
+  z-index: 2;
+}
+
+.sheet-open {
+  overflow: hidden;
 }
 
 /* Coming soon */

@@ -1,34 +1,4 @@
-export type CompetitionStatus =
-  | "live"
-  | "upcoming"
-  | "draft"
-  | "scheduled"
-  | "completed"
-  | "archived";
-
-export type Competition = {
-  id: string;
-  name: string;
-  status: CompetitionStatus;
-  format: string;
-  rule: string;
-  venue: string;
-  dateStart: string;
-  dateEnd: string;
-  teams: number;
-  players: number;
-  matchesCompleted: number;
-  matchesTotal: number;
-  courts: number;
-  liveMatches: number;
-  waitingMatches: number;
-  spectators: number;
-  progress: number;
-  cover: string;
-  timing: string;
-};
-
-export const competitionsSeed: Competition[] = [
+export const competitionsSeed = [
   {
     id: "challenger-2026",
     name: "Challenger 2026",

@@ -1,16 +1,16 @@
 # Padeuce Command Centre
 
-A polished front-end prototype for clubs, tournament organisers, coaches and officials. It extends the Padeuce scoring experience into a responsive operational command centre for live matches, courts and competitions.
+A framework-free static HTML prototype for clubs, tournament organisers, coaches and officials. It extends the Padeuce scoring experience into a responsive operational command centre for live matches, courts and competitions.
 
 ## Run locally
 
-Install dependencies, then run:
+The site is a static bundle that can be hosted by any basic file server. For local development and production optimisation, install dependencies and run:
 
 ```bash
 npm run dev
 ```
 
-Open the local URL shown in the terminal. The production build is created with:
+Open the local URL shown in the terminal. The optimised production build is created with:
 
 ```bash
 npm run build
@@ -55,15 +55,19 @@ The prototype uses semantic controls, labels, visible focus treatment, 44px mobi
 
 ## Project structure
 
-- `app/page.tsx` - interactive screens, shared shell and reusable prototype components
-- `app/data.ts` - local courts, competitions, activity, schedule and navigation data
-- `app/globals.css` - reset, tokens, components, pages and responsive behaviour
-- `public/` - local imagery, manifest and favicon
+- `index.html` - semantic markup for login, command centre, competitions, placeholders, dialogs and mobile navigation
+- `js/app.js` - hash routing, component rendering, state and all prototype interactions
+- `js/data.js` - local courts, competitions, activity, schedule and navigation data
+- `css/styles.css` - reset, tokens, components, pages and responsive behaviour
+- `assets/` - local imagery and brand assets
+- `manifest.webmanifest` - installable-site metadata
+
+The browser application has no framework, no inline styles, no inline scripts and no runtime dependency.
 
 ## Add another screen
 
-Add a route entry to `navItems` in `app/data.ts`, create a page component in `app/page.tsx`, and route to it in the authenticated content switch. Shared shell, modal, toast, heading, button and status styles can be reused.
+Add a route entry to `navItems` in `js/data.js`, add the semantic page section to `index.html`, and update `syncRoute()` in `js/app.js`. Shared shell, modal, toast, heading, button and status styles can be reused.
 
 ## Replace mock data with an API
 
-Keep the `Competition` shape in `app/data.ts` as the view model. Replace the seed array and other static exports with asynchronous fetch functions, then load them into the existing top-level state. The filtering, selection and rendering components can remain unchanged.
+Keep the competition object shape in `js/data.js` as the view model. Replace the seed array and other static exports with asynchronous fetch functions, then load them into the existing top-level state. The filtering, selection and rendering functions can remain unchanged.

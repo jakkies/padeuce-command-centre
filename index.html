@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Score every point. Control every court. Run every competition with the Padeuce Command Centre.">
+    <meta name="theme-color" content="#07111c">
+    <meta property="og:title" content="Padeuce Command Centre">
+    <meta property="og:description" content="The operational command centre for padel clubs, courts and competitions.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/images/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Padeuce Command Centre">
+    <meta name="twitter:description" content="Score every point. Control every court. Run every competition.">
+    <meta name="twitter:image" content="./assets/images/og.png">
+    <link rel="icon" href="./assets/logo/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Padeuce Command Centre</title>
+  </head>
+  <body>
+    <div id="login-screen">
+      <main class="login-page">
+        <section class="login-shell" aria-labelledby="login-title">
+          <div class="login-story">
+            <div class="story-overlay"></div>
+            <div class="story-content">
+              <a class="brand-logo" href="#/login" aria-label="Padeuce home">
+                <span class="brand-mark" aria-hidden="true">P</span>
+                <span class="brand-word">PADEUCE</span>
+              </a>
+              <div class="login-copy">
+                <span class="eyebrow electric">The scoring platform for padel</span>
+                <h1>Because<br><span>every point</span><br>counts.</h1>
+                <p>The complete padel scoring platform for players, clubs, and spectators.</p>
+              </div>
+              <div class="feature-stack" aria-label="Padeuce platform features">
+                <div class="feature-row">
+                  <span class="feature-icon" aria-hidden="true">＋</span>
+                  <div><strong>Score with ease</strong><small>Fast, accurate scoring built for the court.</small></div>
+                </div>
+                <div class="feature-row">
+                  <span class="feature-icon" aria-hidden="true">↗</span>
+                  <div><strong>Share instantly</strong><small>Live results for every player and spectator.</small></div>
+                </div>
+                <div class="feature-row">
+                  <span class="feature-icon" aria-hidden="true">⌁</span>
+                  <div><strong>Analyse your game</strong><small>Turn every rally into useful performance insight.</small></div>
+                </div>
+                <div class="feature-row">
+                  <span class="feature-icon" aria-hidden="true">◉</span>
+                  <div><strong>Grow the game</strong><small>Connect clubs, players, sponsors and officials.</small></div>
+                </div>
+              </div>
+              <div class="app-promo">
+                <div class="mini-phone" aria-hidden="true">
+                  <span>FINAL</span><strong>6 <i>:</i> 4</strong><small>Match saved</small>
+                </div>
+                <div class="app-promo-copy">
+                  <span class="eyebrow">Play point-for-point</span>
+                  <h3>The Padeuce app</h3>
+                  <p>Score matches, save results and share live play.</p>
+                  <div class="store-row">
+                    <button type="button" class="store-button"> <span>App Store</span></button>
+                    <button type="button" class="store-button">▶ <span>Google Play</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="login-form-side">
+            <div class="mobile-login-brand">
+              <a class="brand-logo" href="#/login" aria-label="Padeuce home">
+                <span class="brand-mark" aria-hidden="true">P</span>
+                <span class="brand-word">PADEUCE</span>
+              </a>
+              <h1>Every point <span>counts.</span></h1>
+            </div>
+            <form class="login-card" id="login-form" novalidate>
+              <div class="login-heading">
+                <span class="eyebrow">Command Centre</span>
+                <h2 id="login-title">Welcome back</h2>
+                <p>Sign in to your Padeuce account.</p>
+              </div>
+              <label class="field-label" for="login-email">Email address</label>
+              <div class="input-wrap" id="email-wrap">
+                <span aria-hidden="true">✉</span>
+                <input id="login-email" name="email" type="email" autocomplete="email" placeholder="name@club.co.za" aria-describedby="email-error">
+              </div>
+              <small id="email-error" class="field-error" hidden>Enter a valid email address.</small>
+
+              <label class="field-label" for="login-password">Password</label>
+              <div class="input-wrap" id="password-wrap">
+                <span aria-hidden="true">⌁</span>
+                <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" aria-describedby="password-error">
+                <button type="button" class="input-action" id="password-toggle" aria-label="Show password">Show</button>
+              </div>
+              <small id="password-error" class="field-error" hidden>Use at least 6 characters.</small>
+
+              <div class="form-options">
+                <label class="check-row"><input id="remember-email" type="checkbox"> Remember me</label>
+                <button type="button" class="text-button" data-modal="forgot">Forgot password?</button>
+              </div>
+              <button class="button primary full" id="login-submit" type="submit">Sign in <span>→</span></button>
+              <div class="divider"><span>or continue with</span></div>
+              <div class="social-row">
+                <button class="button secondary" type="button"><b>G</b> Google</button>
+                <button class="button secondary" type="button"><b></b> Apple</button>
+              </div>
+              <p class="request-copy">New to Padeuce? <button type="button" class="text-button" data-modal="access">Request access</button></p>
+            </form>
+            <div class="mobile-app-promo">
+              <strong>The Padeuce app</strong><span>Score every point from the court.</span>
+              <button class="button compact secondary" type="button" data-toast="App download opened">Get the app</button>
+            </div>
+            <footer class="login-footer">
+              <span>© 2026 Padeuce</span>
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Use</a>
+            </footer>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="application" class="app-shell" hidden>
+      <header class="topbar">
+        <div class="topbar-brand">
+          <button class="hamburger" id="drawer-open" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+          <a class="brand-logo" href="#/today" aria-label="Padeuce Today">
+            <span class="brand-mark" aria-hidden="true">P</span>
+            <span class="brand-word">PADEUCE</span>
+          </a>
+        </div>
+        <div class="topbar-tools">
+          <div class="dropdown-anchor">
+            <button class="club-selector" id="club-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span class="club-monogram">H</span>
+              <span><small>Current club</small><strong id="current-club">Hermanus Sports Club</strong></span>
+              <i>⌄</i>
+            </button>
+            <div class="dropdown-menu" id="club-menu" role="menu" hidden>
+              <button type="button" data-club="Hermanus Sports Club"><span class="menu-check">✓</span> Hermanus Sports Club</button>
+              <button type="button" data-club="Cape Town Padel Park"><span>○</span> Cape Town Padel Park</button>
+              <button type="button" data-club="Overberg Padel Centre"><span>○</span> Overberg Padel Centre</button>
+            </div>
+          </div>
+          <label class="global-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="global-search" type="search" placeholder="Search players, matches, competitions…" aria-label="Global search">
+            <kbd>⌘ K</kbd>
+          </label>
+          <div class="dropdown-anchor">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notifications" aria-expanded="false">
+              ♢<span class="notification-badge">2</span>
+            </button>
+            <div class="dropdown-menu notification-menu" id="notification-menu" role="menu" hidden>
+              <div class="menu-title"><strong>Notifications</strong><button type="button" data-toast="All notifications marked as read">Mark all read</button></div>
+              <button type="button" class="unread"><span class="notice-dot">•</span><span><strong>Court 6 needs attention</strong><small>1 min ago</small></span></button>
+              <button type="button" class="unread"><span class="notice-dot">•</span><span><strong>Round 2 draw is ready</strong><small>8 min ago</small></span></button>
+              <button type="button"><span class="notice-dot">•</span><span><strong>Sponsor campaign reached 10k views</strong><small>1 hour ago</small></span></button>
+            </div>
+          </div>
+          <div class="dropdown-anchor">
+            <button class="profile-button" id="profile-toggle" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span class="avatar">JM</span><span class="profile-copy"><strong>James Meyer</strong><small>Competition Admin</small></span><i>⌄</i>
+            </button>
+            <div class="dropdown-menu profile-menu" id="profile-menu" role="menu" hidden>
+              <button type="button" data-toast="Profile settings opened">◉ Profile settings</button>
+              <button type="button" data-toast="Preferences opened">⚙ Preferences</button>
+              <hr>
+              <button type="button" class="danger-link" id="logout-button">↪ Log out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+        <div class="drawer-header">
+          <a class="brand-logo" href="#/today" aria-label="Padeuce Today">
+            <span class="brand-mark" aria-hidden="true">P</span><span class="brand-word">PADEUCE</span>
+          </a>
+          <button class="icon-button" id="drawer-close" type="button" aria-label="Close navigation">×</button>
+        </div>
+        <nav id="sidebar-nav">
+          <span class="nav-label">Workspace</span>
+          <button class="nav-item" type="button" data-route="today"><span class="nav-icon">⌂</span><span>Today</span></button>
+          <button class="nav-item" type="button" data-route="competitions"><span class="nav-icon">◈</span><span>Competitions</span></button>
+          <button class="nav-item" type="button" data-route="courts"><span class="nav-icon">▦</span><span>Courts</span></button>
+          <button class="nav-item" type="button" data-route="matches"><span class="nav-icon">◎</span><span>Matches</span></button>
+          <button class="nav-item" type="button" data-route="community"><span class="nav-icon">◉</span><span>Community</span></button>
+          <button class="nav-item" type="button" data-route="insights"><span class="nav-icon">↗</span><span>Insights</span></button>
+          <button class="nav-item" type="button" data-route="sponsors"><span class="nav-icon">◇</span><span>Sponsors</span></button>
+          <span class="nav-label nav-label-second">System</span>
+          <button class="nav-item" type="button" data-route="assistant"><span class="nav-icon">✦</span><span>AI Assistant</span><b>BETA</b></button>
+          <button class="nav-item" type="button" data-route="administration"><span class="nav-icon">⚙</span><span>Administration</span></button>
+        </nav>
+        <div class="help-card">
+          <span class="help-icon">?</span><strong>Need a hand?</strong>
+          <p>Get setup guidance or contact the Padeuce team.</p>
+          <button class="button compact secondary" type="button" data-modal="help">Help centre</button>
+        </div>
+      </aside>
+      <button class="drawer-scrim" id="drawer-scrim" type="button" aria-label="Close navigation" hidden></button>
+
+      <main class="workspace" id="workspace">
+        <section class="page page-view today-page" id="today-page" data-page="today">
+          <header class="page-heading">
+            <div><span class="eyebrow">Live operations</span><h1>Today Dashboard</h1><p>Tuesday, 28 July 2026 · Challenger 2026 Command Centre</p></div>
+            <div class="page-actions"><button class="button secondary compact" type="button" data-toast="Live dashboard refreshed">↻ Refresh live data</button></div>
+          </header>
+
+          <section class="overview-strip" aria-label="Live overview">
+            <div class="overview-metric"><span class="metric-icon">●</span><div><strong>12</strong><b>Live Matches</b><small>Across 8 courts</small></div></div>
+            <div class="overview-metric"><span class="metric-icon">◷</span><div><strong>4</strong><b>Waiting Matches</b><small>Next 18 minutes</small></div></div>
+            <div class="overview-metric"><span class="metric-icon">▦</span><div><strong>8</strong><b>Courts Active</b><small>1 maintenance</small></div></div>
+            <div class="overview-metric"><span class="metric-icon">◉</span><div><strong>74</strong><b>Players on Site</b><small>91% checked in</small></div></div>
+            <div class="overview-metric"><span class="metric-icon">◎</span><div><strong>322</strong><b>Live Spectators</b><small>+18% today</small></div></div>
+            <div class="overview-metric"><span class="metric-icon">↗</span><div><strong>92%</strong><b>Ad Fill Rate</b><small>Above target</small></div></div>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="card health-card">
+              <div class="card-header"><div><span class="eyebrow">Operations</span><h2>Tournament Health</h2></div><button class="icon-button small" type="button" data-toast="Health detail opened" aria-label="Open health detail">•••</button></div>
+              <div class="health-content">
+                <div class="progress-ring ring-94"><div><strong>94%</strong><span>Excellent</span></div></div>
+                <div class="health-copy"><h3>Everything is on track.</h3><p>Your tournament is running smoothly with no critical blockers.</p>
+                  <ul><li><span>✓</span>No critical issues</li><li><span>✓</span>All courts operational</li><li><span>✓</span>Round on schedule</li><li><span>✓</span>Good player check-in rate</li></ul>
+                </div>
+              </div>
+            </section>
+
+            <section class="card actions-card">
+              <div class="card-header"><div><span class="eyebrow">3 open tasks</span><h2>Action Required</h2></div><span class="count-badge">3</span></div>
+              <div class="action-list">
+                <div class="action-item"><span class="action-status">!</span><div><strong>Court 6 waiting for players</strong><small>4 minutes behind schedule</small></div><button class="button compact secondary" type="button" data-confirm="court-6">Resolve</button></div>
+                <div class="action-item"><span class="action-status">?</span><div><strong>Confirm Court 4 result</strong><small>Score submitted by one team</small></div><button class="button compact secondary" type="button" data-confirm="court-4">Review</button></div>
+                <div class="action-item"><span class="action-status">✓</span><div><strong>Round 2 ready to publish</strong><small>All 8 results verified</small></div><button class="button compact secondary" type="button" data-confirm="round-2">Publish</button></div>
+              </div>
+            </section>
+
+            <section class="card schedule-card">
+              <div class="card-header"><div><span class="eyebrow">Programme</span><h2>Today’s Schedule</h2></div><button class="text-button" type="button" data-toast="Full schedule opened">View all →</button></div>
+              <div class="timeline">
+                <div class="timeline-item current"><time>09:00</time><span class="timeline-node"></span><div><strong>Round 1 started</strong><small>Complete</small></div></div>
+                <div class="timeline-item current"><time>11:30</time><span class="timeline-node"></span><div><strong>Quarter Finals</strong><small>In progress</small></div></div>
+                <div class="timeline-item"><time>15:00</time><span class="timeline-node"></span><div><strong>Semi Finals</strong><small>Upcoming</small></div></div>
+                <div class="timeline-item"><time>18:00</time><span class="timeline-node"></span><div><strong>Finals</strong><small>Upcoming</small></div></div>
+                <div class="timeline-item"><time>20:00</time><span class="timeline-node"></span><div><strong>Prize Giving</strong><small>Upcoming</small></div></div>
+              </div>
+            </section>
+
+            <section class="live-courts">
+              <div class="section-heading"><div><span class="eyebrow">Court operations</span><h2>Live Courts</h2></div><button class="text-button" type="button" data-toast="All courts opened">View court map →</button></div>
+              <div class="court-grid" id="court-grid"></div>
+            </section>
+
+            <section class="card activity-card">
+              <div class="card-header"><div><span class="eyebrow">Live feed</span><h2>Recent Activity</h2></div><span class="live-label"><i></i> Live</span></div>
+              <div class="activity-list" id="activity-list"></div>
+            </section>
+
+            <section class="ai-panel">
+              <div class="ai-header"><div class="ai-orb">✦</div><div><div class="title-with-badge"><h2>Padeuce Assistant</h2><span>BETA</span></div><p>Operational insights for the next best action.</p></div></div>
+              <div class="suggestion-grid" id="suggestion-grid">
+                <article class="suggestion-card" data-suggestion="court-delay"><span class="suggestion-icon">↘</span><div><strong>Court 3 is behind schedule</strong><p>Starting now recovers 18 minutes.</p><div><button class="text-button" type="button" data-toast="Court 3 review opened">Review →</button><button class="dismiss-button" type="button" data-dismiss-suggestion>Dismiss</button></div></div></article>
+                <article class="suggestion-card" data-suggestion="publish"><span class="suggestion-icon">✓</span><div><strong>Round 2 can be published</strong><p>All quarter-final results are verified.</p><div><button class="text-button" type="button" data-confirm="round-2">Publish →</button><button class="dismiss-button" type="button" data-dismiss-suggestion>Dismiss</button></div></div></article>
+                <article class="suggestion-card" data-suggestion="rain"><span class="suggestion-icon">☂</span><div><strong>Heavy rain expected at 16:00</strong><p>A 22-minute court plan avoids delays.</p><div><button class="text-button" type="button" data-toast="Weather plan opened">View Plan →</button><button class="dismiss-button" type="button" data-dismiss-suggestion>Dismiss</button></div></div></article>
+              </div>
+              <div class="ai-response" id="ai-response" hidden><span>✦</span><p id="ai-response-copy"></p><button class="icon-button small" id="ai-response-close" type="button" aria-label="Dismiss response">×</button></div>
+              <div class="ai-input"><span>✦</span><input id="ai-prompt" placeholder="Ask Padeuce about courts, schedules or players…" aria-label="Ask Padeuce"><button id="ai-submit" type="button" aria-label="Send question">↑</button></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page page-view competitions-page" id="competitions-page" data-page="competitions" hidden>
+          <header class="page-heading">
+            <div><span class="eyebrow">Tournament operations</span><h1>Competitions</h1><p>Manage all tournaments and competitions.</p></div>
+            <div class="page-actions"><button class="button secondary" type="button" data-modal="import">↓ Import</button><button class="button primary sticky-mobile-cta" type="button" data-modal="new">＋ New Tournament</button></div>
+          </header>
+          <div class="competition-layout">
+            <div class="competition-main">
+              <div class="tabs" id="competition-tabs" role="tablist" aria-label="Competition status">
+                <button type="button" role="tab" data-tab="active" aria-selected="true" class="active">Active <span>2</span></button>
+                <button type="button" role="tab" data-tab="upcoming" aria-selected="false">Upcoming <span>1</span></button>
+                <button type="button" role="tab" data-tab="draft" aria-selected="false">Drafts <span>1</span></button>
+                <button type="button" role="tab" data-tab="completed" aria-selected="false">Completed <span>1</span></button>
+                <button type="button" role="tab" data-tab="archived" aria-selected="false">Archived <span>1</span></button>
+              </div>
+              <div class="filters" id="competition-filters">
+                <label class="filter-search"><span>⌕</span><input id="competition-search" type="search" placeholder="Search competitions…" aria-label="Search competitions"></label>
+                <label><span>Date</span><select aria-label="Filter by date"><option>Any date</option><option>Next 30 days</option><option>This season</option></select></label>
+                <label><span>Format</span><select id="format-filter" aria-label="Filter by format"><option value="all">All formats</option></select></label>
+                <label><span>Status</span><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="live">Live</option><option value="upcoming">Upcoming</option><option value="draft">Draft</option><option value="scheduled">Scheduled</option><option value="completed">Completed</option><option value="archived">Archived</option></select></label>
+                <label><span>Venue</span><select id="venue-filter" aria-label="Filter by venue"><option value="all">All venues</option></select></label>
+                <button class="button secondary filter-toggle" id="filter-toggle" type="button">⌁ Filters</button>
+              </div>
+              <div class="result-summary"><span><strong id="competition-count">0</strong> competitions</span><button class="text-button" id="clear-filters" type="button" hidden>Clear filters</button></div>
+              <div class="competition-list" id="competition-list"></div>
+            </div>
+            <aside class="tournament-aside" id="tournament-aside" aria-label="Tournament at a glance"></aside>
+          </div>
+          <button class="sheet-scrim" id="sheet-scrim" type="button" aria-label="Close tournament details" hidden></button>
+          <aside class="tournament-aside mobile-sheet" id="mobile-tournament-sheet" aria-label="Selected tournament details" hidden></aside>
+        </section>
+
+        <section class="page page-view coming-page" id="coming-page" data-page="coming" hidden>
+          <header class="page-heading"><div><span class="eyebrow">Padeuce workspace</span><h1 id="coming-title">Workspace</h1><p>This command-centre module is being prepared for the next release.</p></div></header>
+          <section class="coming-card">
+            <div class="coming-visual"><span id="coming-icon">◇</span><i></i><i></i><i></i></div>
+            <span class="eyebrow electric">Coming soon</span>
+            <h2><span id="coming-name">This workspace</span> is taking shape.</h2>
+            <p>One connected place to manage every part of competition day, built around Padeuce live scoring.</p>
+            <div class="coming-features"><span>✓ Live operational data</span><span>✓ Club-ready controls</span><span>✓ Public result integration</span></div>
+            <button class="button primary" type="button" id="notify-coming">Notify me</button>
+          </section>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Mobile navigation">
+        <button type="button" data-route="today"><span>⌂</span>Today</button>
+        <button type="button" data-route="competitions"><span>◈</span>Competitions</button>
+        <button type="button" data-route="courts"><span>▦</span>Courts</button>
+        <button type="button" id="more-navigation"><span>•••</span>More</button>
+      </nav>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header">
+          <div><span class="eyebrow">Padeuce workspace</span><h2 id="modal-title">Dialog</h2></div>
+          <button class="icon-button" id="modal-close" type="button" aria-label="Close dialog">×</button>
+        </header>
+        <div class="modal-body" id="modal-body"></div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden>
+      <span class="toast-check" aria-hidden="true">✓</span>
+      <span id="toast-copy"></span>
+      <button class="icon-button small" id="toast-close" type="button" aria-label="Dismiss notification">×</button>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
